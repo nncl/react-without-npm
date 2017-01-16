@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>React Without NPM - Realtime on the browser: NOT GOOD</title>
+</head>
+<body>
+
+    <h1>React Without NPM - Realtime on the browser: NOT GOOD</h1>
+
+	<div id="m-button-here"></div>
+
+    <script src="https://unpkg.com/react@15/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom@15/dist/react-dom.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+
+	<script type="text/babel">
+        var btnStyle = {
+            background: "pink"
+        };
+
+		var PinkButton = React.createClass({
+		    onClick : function () {
+                alert("Don't ever write production code like this or I'll beat you!")
+            },
+            render: function () {
+                return (
+                    <button onClick={this.onClick} style={btnStyle}>Click me!</button>
+                )
+            }
+		});
+
+		ReactDOM.render(<PinkButton />, document.getElementById('m-button-here'));
+	</script>
+</body>
+</html>
